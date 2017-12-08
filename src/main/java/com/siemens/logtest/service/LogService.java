@@ -1,5 +1,6 @@
 package com.siemens.logtest.service;
 
+import org.apache.log4j.NDC;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ public class LogService {
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     public void printLog() throws InterruptedException {
+        NDC.push("dpp-test");
         int i = 10000;
         while (true) {
             log.info("### ### ### ### logtest ### ### ### ### " + i + "");
